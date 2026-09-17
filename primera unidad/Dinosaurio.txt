@@ -1,0 +1,42 @@
+1. Variable objetivo: 
+P1: Is_dead de tipo binaria donde en cada frame se lea si murio o no
+P2: Score de tipo numerica para medir la tasa de exito del intento que se toma al final de la partida
+P3: Obstacle  de tipo categoria donde se lea el tipo de enemigo que aparece hasta la derecha en cada frame
+
+2: Variables de entrada
+P1
+	distancia_obstaculo (num): vemos cuanto falta para que el obstaculo llegue
+	speed (num): lee que tanto tiempo de pensamiento se le puede dar
+	Is_jumping (boleana): indica si estamos saltando no
+	y_position(num): necesario para saber la altura en la que estamos
+	next_obs_high(num): podemos saber si la altura del siguiente obstaculo es mayor a nuestra posicion
+	
+P2
+	max_time(num): vemos nuestro tiempo para saber si fue mejor o peor
+	max_speed (num): vemos nuestra velociad maxima para comparar
+	jump_count (num): contamos los saltos dados en la partida
+	enemy_count(num): contamos los enemigos vistos
+	obst_count(num): contamos los obstaculos de la partida
+P3
+	obst_type(cat): tipo de obstaculo que esta frente a nosotros
+	obst_dist(num): distancia a ese obstaculo
+	obst_anchura(num): saber que tan ancho es el obstaculo
+	obst_last(cat): para saber el anterior
+	obst_speed(num): para saber que tan rapido se mueve
+
+
+3: Granularidad
+P1: Por frame para tener una alta frecuencia y saber en cada momento que pasa
+P2: Cada partida puesto que queremos saber el resultado de la run
+P3: Cada evento el cual es cada que aparece un enemigo a la derecha
+	
+4: Tamaño razonable
+P1: almenos 100 partidas
+P2: 200 partidas
+P3: 2000 eventos en total
+
+5: Errores de diseño
+P1: que se revuelvan los frames y no sean consecutivos
+P2: Utilizar variables que solo se conocen despues de terminar pero no puede ser muy precisa como los enemigos
+P3: la variacion entre dia y noche puede causar que se lean en categorias distintas
+
