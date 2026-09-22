@@ -1,0 +1,5 @@
+si se salta únicamente al inicio y no se vuelve a saltar mi hipótesis es que 
+al momento de volver a correr los resultados la ia no saltará 
+todo esto se debe a que hay un desbalance de los pesos y existe un sobre ajuste
+que le enseña más a perder que a ganar y el salto se puede ver como una anomalía qué 
+se debe evitar
