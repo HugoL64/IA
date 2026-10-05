@@ -1,0 +1,58 @@
+La principal diferencia entre una red neuronal multicapa y un árbol de decisión es la forma en la que aprenden a tomar decisiones.
+Un árbol de decisión funciona como un juego de preguntas. Por ejemplo, si queremos saber si una persona va a aprobar una materia, 
+el árbol podría preguntar: “¿Tiene más del 80% de asistencia?”. Si la respuesta es sí, pasa a otra pregunta; si es no, toma otro camino. 
+Al final, llega a una decisión. Es parecido a seguir un diagrama de flujo.
+Una red neuronal multicapa es diferente en su funcionamiento.
+Tiene varias capas de pequeñas “neuronas” conectadas entre sí. Estas conexiones tienen valores que se van ajustando durante el entrenamiento. 
+De esta manera, la red aprende poco a poco qué características de los datos son importantes para llegar a una respuesta. 
+Es parecido a cómo una persona aprende a reconocer patrones después de ver muchos ejemplos.
+
+La ventaja del árbol de decisión es que es fácil entender por qué tomó una decisión, porque podemos seguir las preguntas que hizo. 
+En cambio, una red neuronal puede encontrar patrones mucho más complicados, pero normalmente es más difícil saber exactamente por qué 
+llegó a una determinada respuesta. Así que en resumen un árbol sigue basicamente una cuestion de preguntas de si o no con dos
+o mas vertientes donde se puede seguir mientras que la red neuronal sigue patrones para ajustar pesos y dar resultados en base a 
+los mismos. El indice gini habla sobre la pureza de los datos. 
+
+Los parametros para revisar del juego son:
+1. Distancia entre el jugador y la pelota
+2. velocidad de la pelota
+3. direccion vectorial de la pelota
+4. Posicion en X y Y de la pelota
+5. Posicion de el jugador en coordenadas X y Y
+6. Angulo de la pelota respecto al jugador
+7. Direccion del movimiento del jugador
+8. Distacia a las paredes
+9. tiempo de la partida
+
+Sus pros y contras son: 
+Árbol:
+- Es relativamente facil de entrenar
+- Necesita menos datos para empezar a funcionar
+- Es facil de interpretar
+- Es sencillo modificar despues del entrenamiento
+
+Contras:
+- Puede tener problemas cuando se tienen muchos datos
+- Puede depender demasiado de situaciones vistas y fallas ante nuevas
+- Las desiciones no son del todo agiles
+- Es medio malo para situaciones complejas como trayectoria, tiempo y posicion
+- Si se hace muy estenso el árbol puede llegar ser dificil de manejar
+- Si se cambia un valor el árbol cambia completamente
+
+Red neuronal multicapa
+Pros:
+- Puede aprender de situaciones mas complejar
+- puede convinar diversos parametros para dar una respuesta
+- puede reaccionar mejor a situaciones nuevas o variables de las que conoce
+- es mas flexible
+- puede ser escalable y añadir variables
+
+Contras:
+- Necesita mas datos
+- el entrenamiento es complicado
+- es mas dificil saber el porque de sus decisiones
+- puede aprender comportamientos incorrectos
+
+Yo usaria la red neuronal puesto que al añadir mas variables como mas pelotas es mas escalable asi que no se tiene que hacer desde cero, 
+ademas el añadir mas pelotas haria crecer de forma exponencial el árbol generando problemas por lo que es una mejor opcion la red
+neuronal ya que se pierde la simpleza que es su mayor ventaja
