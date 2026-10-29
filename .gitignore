@@ -1,0 +1,20 @@
+# Dataset de fotos y archivos grandes
+segunda unidad/sportimages/sportimages/
+segunda unidad/sportimages/sportimages.zip
+segunda unidad/sportimages/sportimages_dataset.npz
+*.zip
+*.npz
+
+# Metadatos del sistema y macOS
+__MACOSX/
+.DS_Store
+Thumbs.db
+
+# Python y Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+.env
+venv/
+.venv/
