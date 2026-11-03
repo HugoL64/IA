@@ -1,0 +1,100 @@
+EXAMEN TEÓRICO — PERCEPTRÓN, MLP Y CNN (GRUPO B)
+Eduardo Alcaraz
+
+1 Datos del alumno
+Nombre: Hugo Lemus Galván 
+Grupo: B
+Fecha: 3 de Noviembre 
+
+2 Pregunta 1 — Por qué no basta “una sola neurona”
+Resume el funcionamiento de un perceptrón como “regla de decisión”.
+Explica la noción de frontera lineal sin escribir fórmulas.
+Da un ejemplo (aunque sea inventado) donde esa frontera no alcanza.
+2.0.1 Respuesta
+Funcionamiento como regla de decisión: Funciona como un clasificador lineal que pondera las entradas con sus pesos, les suma un sesgo y aplica una función de umbral para decidir a qué clase pertenece la muestra.
+Frontera lineal: Es una línea (en 2D) o hiperplano (en dimensiones superiores) que divide de forma plana el espacio de características en dos regiones de clasificación, sin permitir curvas ni dobleces.
+Ejemplo: El problema clásico de la compuerta XOR, donde los puntos de una misma clase están en esquinas opuestas y ninguna línea recta puede separarlos sin error.
+3 Pregunta 2 — CNN: de píxeles a mapas
+¿Qué problema de estructura espacial ignora un MLP si aplana la foto?
+¿Qué significa que un mismo filtro se aplique en toda la imagen?
+Además de clasificación de objetos, cita dos usos donde la CNN encaja bien.
+3.0.1 Respuesta
+Estructura espacial: Un MLP aplana la imagen en un vector unidimensional, destruyendo la vecindad espacial y la relación directa que tienen los píxeles contiguos entre sí.
+Filtro compartido: Significa que un mismo kernel barre toda la imagen aplicando idénticos pesos, lo que permite detectar la misma característica (como un borde) sin importar en qué zona de la foto se encuentre.
+Dos usos: Segmentación de imágenes médicas (como la detección de tumores en resonancias) y sistemas de visión en conducción autónoma (detección de señales de tráfico o peatones).
+4 Pregunta 3 — Softmax, clases y decisiones
+Diferencia un problema binario de uno multiclase en términos de salida de la red.
+¿Qué lectura le das a las probabilidades que produce un softmax?
+Imagina tres carpetas de imágenes (tres riesgos o tres animales): ¿qué arquitectura de salida usarías y por qué?
+4.0.1 Respuesta
+Binario vs. multiclase: En el problema binario la salida suele ser una sola neurona con activación sigmoide (una probabilidad única); en el multiclase se tienen tantas salidas como clases, empleando softmax para obtener una distribución de probabilidad que suma 1.
+Lectura de softmax: Se interpretan como las probabilidades relativas de que la muestra pertenezca a cada una de las clases evaluadas por el modelo.
+Arquitectura de salida: Una capa densa final con tres neuronas (una por cada carpeta o categoría) y activación softmax para obtener la certeza porcentual de cada opción.
+5 Pregunta 4 — MLP: profundidad con sentido
+¿Qué ganas al apilar capas densas con activaciones no lineales?
+¿Qué riesgo aparece si la red es demasiado grande para tus datos?
+Relaciona “capa oculta” con la idea de aprender representaciones intermedias (en palabras simples).
+5.0.1 Respuesta
+Capas densas con no-linealidades: Permiten componer representaciones cada vez más complejas, combinando conceptos simples de capas anteriores para modelar relaciones no lineales en los datos.
+Riesgo: Sobreajuste (overfitting), donde la red memoriza los ejemplos de entrenamiento en lugar de aprender patrones generalizables.
+Capa oculta: Actúa como un transformador que convierte los datos de entrada en una representación intermedia más abstracta y útil para que la capa final tome la decisión.
+6 Pregunta 5 — Entrenamiento sin magia
+Explica qué es una época a nivel intuitivo.
+¿Hacia qué “objetivo” se mueven los pesos cuando hablamos de minimizar el error?
+Si el learning rate es absurdo (muy grande o muy chico), ¿qué síntomas conceptuales esperarías?
+6.0.1 Respuesta
+Época: Es una pasada completa de todo el conjunto de entrenamiento a través de la red (tanto en propagación hacia adelante como en retropropagación).
+Objetivo de los pesos: Minimizar la función de pérdida (loss), reduciendo la discrepancia entre las predicciones del modelo y las etiquetas reales.
+Learning rate absurdo: Si es demasiado grande, la pérdida oscila o diverge y el modelo no converge; si es muy pequeño, el entrenamiento avanza con extrema lentitud y corre el riesgo de estancarse en mínimos subóptimos.
+7 Pregunta 6 — Bloques de una CNN
+Sin matemáticas, di el papel de cada pieza:
+Kernel / filtro convolucional
+Función de activación después de conv
+Max pooling
+Capa densa + softmax al final de un clasificador
+7.0.1 Respuesta
+Kernel / filtro convolucional: Extrae características locales y espaciales (como bordes o texturas) barriendo la imagen.
+Función de activación post-conv: Introduce no-linealidad para que el modelo aprenda patrones complejos y no se comporte como una simple transformación lineal.
+Max pooling: Reduce la dimensionalidad espacial de los mapas de características, ahorrando cómputo y aportando invarianza a pequeñas traslaciones.
+Capa densa + softmax: Consolida la información extraída a nivel espacial y emite las probabilidades finales de clasificación para cada clase.
+8 Pregunta 7 — XOR y la historia del aprendizaje
+¿Por qué XOR se volvió un “contraejemplo” famoso?
+¿Qué elemento de un MLP permite patrones que no son una sola línea?
+¿En qué tipo de tabla/problema del mundo real seguirías usando algo tan simple como un perceptrón o un modelo lineal?
+8.0.1 Respuesta
+Contraejemplo de XOR: Demostró formalmente que los modelos lineales simples no podían resolver problemas lógicos básicos que no fueran linealmente separables, lo que pausó la investigación en redes neuronales.
+Elemento del MLP: Las capas ocultas combinadas con funciones de activación no lineales.
+Modelo lineal simple: En problemas tabulares sencillos donde las variables muestran una relación claramente proporcional y directa (por ejemplo, una regresión lineal simple o clasificación con fronteras muy claras).
+9 Pregunta 8 — De lo simple a lo abstracto en visión
+Contrasta lo que buscan capas tempranas vs capas profundas en una CNN.
+¿Qué intuición da eso para transfer learning (aunque no lo hayas programado)?
+¿Cuándo sospecharías que tu CNN es “profunda de más” para el dataset del curso?
+9.0.1 Respuesta
+Capas tempranas vs. profundas: Las tempranas detectan patrones básicos (bordes, líneas, colores); las profundas combinan esos patrones para reconocer partes complejas y objetos completos.
+Transfer learning: Como las primeras capas aprenden detectores visuales genéricos que sirven para casi cualquier imagen, se pueden reutilizar en un nuevo problema ajustando únicamente las capas finales.
+CNN muy profunda: Cuando el dataset disponible es muy pequeño y el modelo sufre de sobreajuste severo inmediato, o cuando la pérdida de entrenamiento no logra descender adecuadamente por exceso de complejidad.
+10 Pregunta 9 — Análisis: matching problema → modelo
+Elige Perceptrón/lineal / MLP / CNN (una opción) y justifica en una frase:
+Predecir “compra / no compra” con edad, ingreso y visitas a la web (columnas numéricas).
+Detectar si hay un gato en una foto.
+Aproximar una frontera “curva” o a trozos en datos 2D tabulares.
+¿CNN es la herramienta natural para predecir la siguiente palabra de un párrafo? Justifica y nombra una familia del curso más adecuada (RNN/Transformer a nivel nombre).
+10.0.1 Respuesta
+Predecir compra/no compra con datos tabulares: MLP (o modelo lineal).
+Detectar un gato en una foto: CNN.
+Aproximar una frontera curva en datos 2D tabulares: MLP.
+Predecir la siguiente palabra de un párrafo: No es CNN; la familia adecuada son los modelos secuenciales como RNNs o Transformers.
+11 Pregunta 10 — Análisis: auditoría de un equipo
+Un equipo entrega un modelo “muy preciso” en su laptop y falla con datos nuevos.
+¿Qué diagnósticos conceptuales harías antes de tocar hiperparámetros al azar?
+Pide dos evidencias que deberían mostrar en la defensa (curvas, separación train/val, ejemplos de error, etc.).
+Redacta tres preguntas tuyas para comprobar si saben cuándo usar perceptrón, MLP o CNN (distintas a las del Grupo A si las conoces).
+11.0.1 Respuesta
+Diagnósticos: Verificar si hubo fuga de datos (data leakage) entre entrenamiento y validación, analizar el desbalance de clases y revisar si el conjunto de validación es verdaderamente representativo.
+Evidencias: Curvas de aprendizaje (pérdida en train vs. val para detectar sobreajuste) y una matriz de confusión detallada con ejemplos concretos de error.
+Preguntas para la defensa:
+¿Por qué decidieron usar un MLP en lugar de una CNN si los datos de entrada carecen de una estructura espacial o matricial definida?
+Si el modelo presenta una precisión excelente en entrenamiento pero falla en validación, ¿qué métricas y componentes del entrenamiento revisarían primero para corregir el sobreajuste?
+¿Cuál es la principal limitación de un perceptrón multicapa frente a una CNN al momento de procesar imágenes con alta resolución espacial?
+
+
